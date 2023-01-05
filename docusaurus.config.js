@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Dogu docs',
-  tagline: 'Dinosaurs are cool',
+  tagline: 'Automate your game QA',
   url: 'https://your-docusaurus-test-site.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -38,7 +38,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/dogu-team/dogu-docs',
+            'https://github.com/dogu-team/dogu-docs/blob/main',
         },
         // blog: {
         //   showReadingTime: true,
@@ -91,25 +91,29 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: 'Gamium',
+                to: '/gamium/get-started',
+              },
+              {
+                label: 'API',
+                to: '/api/get-started',
               },
             ],
           },
           {
-            title: 'Community',
+            title: 'Product',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                label: 'Dogu',
+                href: 'https://dogutech.io',
               },
               {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
+                label: 'Gamium',
+                href: 'https://dogutech.io/products/automation',
               },
               {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
+                label: 'Device Farm',
+                href: 'https://dogutech.io/products/device-farm',
               },
             ],
           },
@@ -117,21 +121,18 @@ const config = {
             title: 'More',
             items: [
               {
-                label: 'Blog',
-                to: '/blog',
-              },
-              {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/dogu-team/dogu-docs',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Dogu Technologies, Inc. Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+        additionalLanguages: ['csharp']
       },
     }),
 };
