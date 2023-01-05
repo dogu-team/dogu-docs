@@ -1819,7 +1819,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docusaurus/module-type-aliases@npm:2.2.0":
+"@docusaurus/module-type-aliases@npm:2.2.0, @docusaurus/module-type-aliases@npm:^2.2.0":
   version: 2.2.0
   resolution: "@docusaurus/module-type-aliases@npm:2.2.0"
   dependencies:
@@ -2111,7 +2111,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docusaurus/types@npm:2.2.0":
+"@docusaurus/types@npm:2.2.0, @docusaurus/types@npm:^2.2.0":
   version: 2.2.0
   resolution: "@docusaurus/types@npm:2.2.0"
   dependencies:
@@ -2640,7 +2640,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tsconfig/docusaurus@npm:^1.0.5":
+"@tsconfig/docusaurus@npm:^1.0.6":
   version: 1.0.6
   resolution: "@tsconfig/docusaurus@npm:1.0.6"
   checksum: fb0d7965c01fe64fc6369a72695b903d654bd5fb145f373d707c2bae3c2d828703517d812cef1c041ae44b108f44e52778b9d9837a54fdf782e68e6619a90a4d
@@ -2946,6 +2946,17 @@ __metadata:
     "@types/scheduler": "*"
     csstype: ^3.0.2
   checksum: b62f0ea3cdfa68e106391728325057ad36f1bde7ba2dfae029472c47e01e482bc77c6ba4f1dad59f3f04ee81cb597618ff7c30a33c157c0a20462b6dd6aa2d4d
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:^17.0.2":
+  version: 17.0.52
+  resolution: "@types/react@npm:17.0.52"
+  dependencies:
+    "@types/prop-types": "*"
+    "@types/scheduler": "*"
+    csstype: ^3.0.2
+  checksum: a51b98dd87838d161278fdf9dd78e6a4ff8c018f406d6647f77963e144fb52a8beee40c89fd0e7e840eaeaa8bd9fe2f34519410540b1a52d43a6f8b4d2fbce33
   languageName: node
   linkType: hard
 
@@ -5083,10 +5094,12 @@ __metadata:
   dependencies:
     "@docusaurus/core": 2.2.0
     "@docusaurus/eslint-plugin": ^2.2.0
-    "@docusaurus/module-type-aliases": 2.2.0
+    "@docusaurus/module-type-aliases": ^2.2.0
     "@docusaurus/preset-classic": 2.2.0
+    "@docusaurus/types": ^2.2.0
     "@mdx-js/react": ^1.6.22
-    "@tsconfig/docusaurus": ^1.0.5
+    "@tsconfig/docusaurus": ^1.0.6
+    "@types/react": ^17.0.2
     "@yarnpkg/sdks": ^3.0.0-rc.34
     clsx: ^1.2.1
     prism-react-renderer: ^1.3.5
