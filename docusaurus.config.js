@@ -23,8 +23,8 @@ const config = {
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'ko',
-    locales: ['ko'],
+    defaultLocale: 'en',
+    locales: ['en'],
   },
 
   presets: [
@@ -37,8 +37,7 @@ const config = {
           routeBasePath: '/',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/dogu-team/dogu-docs/blob/main',
+          editUrl: 'https://github.com/dogu-team/dogu-docs/blob/main',
         },
         // blog: {
         //   showReadingTime: true,
@@ -132,7 +131,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        additionalLanguages: ['csharp']
+        additionalLanguages: ['csharp'],
       },
     }),
 };

@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
-    "dev": "docusaurus start -p 4000",
+    "dev": "docusaurus start -p 3100",
     "build": "docusaurus build",
     "newbie": "yarn set version 3.3.1 && yarn install && yarn dlx @yarnpkg/sdks vscode",
+    "newbie:cicd": "yarn set version 3.3.1 && yarn install",
+    "start:dev": "yarn run dev",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
