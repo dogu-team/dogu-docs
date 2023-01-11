@@ -12,7 +12,7 @@ env:
   DOGU_AWS_REGION: ap-northeast-2
 
 jobs:
-  build:
+  build-prod-dogu-docs:
     runs-on: build-dogu-docs
 
     steps:
@@ -43,9 +43,9 @@ jobs:
           platforms: linux/arm64
           target: dogu-docs
 
-  release:
+  release-prod-dogu-docs:
     runs-on: prod-dogu-docs
-    needs: build
+    needs: build-prod-dogu-docs
 
     steps:
       - name: Checkout
@@ -73,7 +73,7 @@ jobs:
 
   send-slack:
     runs-on: build-dogu-docs
-    needs: [release]
+    needs: [release-prod-dogu-docs]
 
     steps:
       - name: Send Slack
