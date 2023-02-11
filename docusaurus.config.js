@@ -71,7 +71,7 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'gamium/get-started',
+            docId: 'gamium/introduction',
             position: 'left',
             label: 'Gamium',
           },
@@ -100,7 +100,7 @@ const config = {
             items: [
               {
                 label: 'Gamium',
-                to: '/gamium/get-started',
+                to: '/gamium/introduction',
               },
               {
                 label: 'API',
@@ -143,6 +143,10 @@ const config = {
         additionalLanguages: ['csharp'],
       },
     }),
+    markdown: {
+      mermaid: true,
+    },
+    themes: ['@docusaurus/theme-mermaid'],
 };
 
 module.exports = config;
