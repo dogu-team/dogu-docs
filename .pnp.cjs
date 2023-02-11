@@ -38,6 +38,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react", "npm:17.0.52"],\
             ["@yarnpkg/sdks", "npm:3.0.0-rc.34"],\
             ["clsx", "npm:1.2.1"],\
+            ["cross-env", "npm:7.0.3"],\
             ["prism-react-renderer", "virtual:7a78bf856f600d06b3b274ec5a6e0356627b67c62ea73fbaeaa6d7eee18e3614466a8f0c5675d3fe658090b7c603f0b27aad75dc266a562241323a32d69da495#npm:1.3.5"],\
             ["react", "npm:17.0.2"],\
             ["react-dom", "virtual:7a78bf856f600d06b3b274ec5a6e0356627b67c62ea73fbaeaa6d7eee18e3614466a8f0c5675d3fe658090b7c603f0b27aad75dc266a562241323a32d69da495#npm:17.0.2"],\
@@ -6732,6 +6733,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["cross-env", [\
+        ["npm:7.0.3", {\
+          "packageLocation": "./.yarn/cache/cross-env-npm-7.0.3-96d81820f4-26f2f3ea2a.zip/node_modules/cross-env/",\
+          "packageDependencies": [\
+            ["cross-env", "npm:7.0.3"],\
+            ["cross-spawn", "npm:7.0.3"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["cross-fetch", [\
         ["npm:3.1.5", {\
           "packageLocation": "./.yarn/cache/cross-fetch-npm-3.1.5-e414995db9-f6b8c6ee3e.zip/node_modules/cross-fetch/",\
@@ -7338,6 +7349,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react", "npm:17.0.52"],\
             ["@yarnpkg/sdks", "npm:3.0.0-rc.34"],\
             ["clsx", "npm:1.2.1"],\
+            ["cross-env", "npm:7.0.3"],\
             ["prism-react-renderer", "virtual:7a78bf856f600d06b3b274ec5a6e0356627b67c62ea73fbaeaa6d7eee18e3614466a8f0c5675d3fe658090b7c603f0b27aad75dc266a562241323a32d69da495#npm:1.3.5"],\
             ["react", "npm:17.0.2"],\
             ["react-dom", "virtual:7a78bf856f600d06b3b274ec5a6e0356627b67c62ea73fbaeaa6d7eee18e3614466a8f0c5675d3fe658090b7c603f0b27aad75dc266a562241323a32d69da495#npm:17.0.2"],\
