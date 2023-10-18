@@ -23,7 +23,6 @@ function HomepageHeader() {
   return (
     <section className={styles.headerBanner}>
       <div className={styles.headerBannerInner}>
-        <DoguLogo width={144} height={144} />
         <h1 className={styles.headerBannerTitle}>{siteConfig.title}</h1>
         <p className={styles.headerBannerDescription}>
           <Translate id="main.descriptionText" />
@@ -31,16 +30,6 @@ function HomepageHeader() {
 
         <div className={styles.headerBannerButtonWrapper}>
           <div className={styles.headerBannerButtonWrapper}>
-            <Link to="/get-started" className={styles.headerBannerButton}>
-              <p className={styles.headerBannerFontColor}>Get started</p>
-            </Link>
-            <Link
-              href="https://dogutech.io"
-              target="_blank"
-              className={styles.headerBannerButton}
-            >
-              <p className={styles.headerBannerFontColor}>Try Dogu for free</p>
-            </Link>
           </div>
         </div>
       </div>
