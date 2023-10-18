@@ -27,7 +27,7 @@ jobs:
           cache: yarn
 
       - name: Install dependencies
-        run: yarn workspace docs install --frozen-lockfile
+        run: yarn install --frozen-lockfile
 
       - name: Write env for production
         run: echo "GOOGLE_ANALYTICS_ID=$GOOGLE_ANALYTICS_ID" >> ./docs/.env
@@ -35,7 +35,7 @@ jobs:
           GOOGLE_ANALYTICS_ID: ${{ env.DOCS_GA_ID }}
 
       - name: Build docs
-        run: yarn build:docs
+        run: yarn build
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1-node16
