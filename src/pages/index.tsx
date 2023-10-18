@@ -42,12 +42,6 @@ function HomepageHeader() {
               <p className={styles.headerBannerFontColor}>Try Dogu for free</p>
             </Link>
           </div>
-          <iframe
-            src="https://ghbtns.com/github-btn.html?user=dogu-team&amp;repo=dogu&amp;type=star&amp;count=true&amp;size=large"
-            width="160"
-            height="30"
-            title="GitHub Stars"
-          />
         </div>
       </div>
     </section>
