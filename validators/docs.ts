@@ -8,8 +8,8 @@ const exceptionUrls: string[] = [
   'https://github.com/dogu-team/${props.repo_name}.git',
 ];
 const checkedUrls: { [url: string]: boolean } = {};
-const docsPath = path.join(__dirname, '../../docs');
-const targetPaths = [`${docsPath}/docs`, `${docsPath}/src`, `${docsPath}/i18n`];
+const rootPath = path.join(__dirname, '../');
+const targetPaths = [`${rootPath}/docs`, `${rootPath}/src`, `${rootPath}/i18n`];
 
 (async () => {
   await validate(targetPaths, {
