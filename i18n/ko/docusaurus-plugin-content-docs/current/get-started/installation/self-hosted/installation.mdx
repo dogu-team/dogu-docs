@@ -52,73 +52,81 @@ sudo mkdir /var/lib/dogu/nexus-data
 sudo chown 200 -R /var/lib/dogu/nexus-data
 ```
 
-</TabItem>
-
-<TabItem value="windows/macOS" label="Windows/macOS">
-
-```
-마운트 경로 생성은 필요 없습니다.
-```
-
-</TabItem>
-</Tabs>
-
 :::note
 위에서 생성한 `/var/lib/dogu` 경로를
 다음 단계에서 생성할 docker-compose.env 파일의 `VOLUME_PATH` 값으로 대체해도 괜찮습니다.
 macOS의 경우 무시해도 됩니다.
 :::
 
-### docker-compose.env 생성 및 설정
 
-1. 빈 docker-compose.env 파일 생성
-2. [파일](https://github.com/dogu-team/dogu-self-hosted/blob/main/docker-compose.env) 내용을 docker-compose.env 파일에 붙여넣기
-3. `DOGU_HOST` 값을 Dogu를 실행할 장비의 ip로 변경  
-   (`localhost` 또는 `127.0.0.1`을 사용하지 마세요. 로컬 장비에서 Dogu를 실행하는 경우 장비의 `private IP` 또는 `public IP`를 사용하세요.)
+</TabItem>
 
-### docker-compose.yml 생성
+<TabItem value="windows/macOS" label="Windows/macOS">
+
+```
+Windows / MacOS의 경우 마운트 경로 생성이 필요하지 않습니다.
+```
+
+</TabItem>
+</Tabs>
+
+### Repository 체크아웃
+Git CLI를 이용해 dogu-self-hosted Repository를 체크아웃 합니다.
+
+```
+git clone https://github.com/dogu-team/dogu-self-hosted.git dogu-self-hosted
+```
+
+체크아웃 완료 후 **dogu-self-hosted** 폴더로 이동합니다.
+
+```
+cd dogu-self-hosted
+```
+
+### Container 배포
+
+**dogu-self-hosted** 폴더에서 아래 명령어를 실행합니다.
 
 <Tabs groupId="arch" defaultValue="Linux(x86_64)" queryString>
 
 <TabItem value="Linux(x86_64)" label="Linux(x86_64)" default>
 
-1. 빈 docker-compose.yml 파일 생성
-2. [파일(Linux-x86_64)](https://github.com/dogu-team/dogu-self-hosted/blob/main/docker-compose.yml) 내용을 docker-compose.yml 파일에 붙여넣기
+```
+docker compose -f ./docker-compose.yml --env-file ./docker-compose.env up  -d
+```
 
 </TabItem>
 
 <TabItem value="macOS(arm64)" label="macOS(arm64)">
 
-1. 빈 docker-compose.yml 파일 생성
-2. [파일(macOS-arm64)](https://github.com/dogu-team/dogu-self-hosted/blob/main/docker-compose-macOS-arm64.yml) 내용을 docker-compose.yml 파일에 붙여넣기
+```
+docker compose -f ./docker-compose-macOS-arm64.yml --env-file ./docker-compose.env up  -d
+```
 
 </TabItem>
 <TabItem value="windows/macOS(x86_64)" label="windows/macOS(x86_64)">
 
-1. 빈 docker-compose.yml 파일 생성
-2. [파일(windows&macOS-x86_64)](https://github.com/dogu-team/dogu-self-hosted/blob/main/docker-compose-macOS-windows-x86_64.yml) 내용을 docker-compose.yml 파일에 붙여넣기
+```
+docker compose -f ./docker-compose-macOS-windows-x86_64.yml --env-file ./docker-compose.env up  -d
+```
 
 </TabItem>
 </Tabs>
 
-### 네트워크 보안 설정
+### Container 배포 확인
 
-Dogu가 설치된 장비의 인/아웃바운드 트래픽 허용 설정에서 `DOGU_HOST`의 IP 접근을 허용해 주세요.
-
-### Dogu 실행
-
-docker-compose.env 및 docker-compose.yml 파일이 함께 존재하는 디렉토리에서 아래 명령어를 실행합니다.
+아래 명령어를 실행하여 dogu-self-hosted가 정상적으로 배포되었는지 확인합니다.
 
 ```
-docker compose -f ./docker-compose.yml --env-file ./docker-compose.env up  -d
+docker ps
 ```
 
-### Dogu 실행 확인
 
-[docker-compose.env 파일 생성](/get-started/installation/self-hosted/installation#docker-composeenv-파일-생성)에서 설정한 `https://DOGU_HOST:3001` 주소로 접속하여 Dogu가 정상적으로 실행되었는지 확인합니다.  
-정상적으로 실행되었다면 아래와 같은 화면이 나타납니다.
+### 콘솔 페이지 접속
 
-<img src="/ko/img/get-started/auth-page.png" />
+**http://localhost:3001** 주소로 접속하여 Dogu가 정상적으로 실행되었는지 확인합니다. 정상적으로 실행되었다면 아래와 같은 화면이 나타납니다.
+
+<img src="/img/get-started/auth-page.png" />
 
 ## 디바이스 팜 구축
 
