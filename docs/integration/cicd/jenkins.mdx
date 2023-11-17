@@ -28,12 +28,6 @@ import jenkins_create_pipeline from '@site/static/img/integration/jenkins/jenkin
 import jenkins_done_pipeline from '@site/static/img/integration/jenkins/jenkins_done_pipeline.png';
 import jenkins_new_upload_application from '@site/static/img/integration/jenkins/jenkins_new_upload_application.png';
 
-import CloudFreeBadge from '@site/src/components/badge/CloudFreeBadge.tsx';
-import SelfHostedProfessionalBadge from '@site/src/components/badge/SelfHostedProfessionalBadge.tsx';
-
-<CloudFreeBadge />
-<SelfHostedProfessionalBadge />
-
 ## Introduction
 
 You can set up a test CI/CD environment by integrating with Jenkins.
@@ -75,29 +69,6 @@ Description: Used as a credential description.
 Dogu Access Token: Paste the Token copied from [Token Issuance](#token-issuance).
 
 <img src={jenkins_new_credential} />
-
-## API URL Configuration
-
-<Tabs groupId="edition" defaultValue="cloud" queryString>
-<TabItem value="cloud" label="Cloud" default>
-
-No API URL configuration is required for Cloud.
-
-</TabItem>
-
-<TabItem value="self-hosted" label="Self-Hosted">
-
-#### 1. Jenkins > Manage Jenkins > System Configuration > System
-
-Under Global properties > Environment variables, click Add to enter Name and Value.
-
-Name: DOGU_API_URL  
-Value: Enter the hosted "Dogu API URL"
-
-<img src={jenkins_set_api_url} />
-
-</TabItem>
-</Tabs>
 
 ## Freestyle Project
 

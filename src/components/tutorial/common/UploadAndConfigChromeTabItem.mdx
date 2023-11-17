@@ -9,9 +9,6 @@ import CodeBlock from '@theme/CodeBlock';
 - Project Id, Organization Id
   - Obtain the [Project Id, Organization Id](/management/project/settings#project-id) from the Organization > Project > Settings page.
 
-<Tabs groupId="service" defaultValue="cloud" queryString>
-<TabItem value="cloud" label="Cloud" default>
-
 Apply the obtained API Token, Project Id, and Organization Id to **dogu.config.json**.
 
 <CodeBlock language="json">
@@ -25,10 +22,6 @@ Apply the obtained API Token, Project Id, and Organization Id to **dogu.config.j
   "browserName": "${props.browser_name}" // ensure ${props.browser_name} app is installed on the device
 }`}
 </CodeBlock>
-
-</TabItem>
-    
-<TabItem value="self-hosted" label="Self-Hosted">
 
 Apply the obtained API Token, Project Id, and Organization Id to **dogu.config.json**.
 Also, apply the `DOGU_HOST` value of the configured Dogu server to apiBaseUrl.
@@ -44,5 +37,3 @@ Also, apply the `DOGU_HOST` value of the configured Dogu server to apiBaseUrl.
   "browserName": "${props.browser_name}" // ensure ${props.browser_name} app is installed on the device
 }`}
 </CodeBlock>
-</TabItem>
-</Tabs>
