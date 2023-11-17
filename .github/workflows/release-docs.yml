@@ -21,6 +21,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Cache Yarn Unplugged
+        uses: actions/cache@v3
+        id: cache_yarn_unplugged
+        env:
+          cache-name: cache-yarn-unplugged
+        with:
+          path: ${{ github.workspace }}/.yarn/unplugged
+          key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('yarn.lock') }}
+
       - uses: actions/setup-node@v3
         with:
           node-version: 18
