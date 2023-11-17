@@ -27,7 +27,8 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: "16"
+          node-version: 18
+          cache: yarn
 
       - if: steps.cache_yarn_unplugged.outputs.cache-hit != 'true'
         name: Install Dependencies
