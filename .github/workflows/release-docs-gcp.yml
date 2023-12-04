@@ -83,6 +83,11 @@ jobs:
     needs: build
 
     steps:
+      - name: Authenticate with Google Cloud
+        uses: "google-github-actions/auth@v1"
+        with:
+          credentials_json: "${{ secrets.GCP_DEV_CICD_SA_KEY }}"
+      
       - id: 'compute-ssh'
         uses: 'google-github-actions/ssh-compute@v0'
         with:
