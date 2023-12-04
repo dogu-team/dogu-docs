@@ -95,6 +95,7 @@ jobs:
           zone: ${{env.DOGU_GCP_REGION}}-a
           ssh_private_key: '${{ secrets.GCP_DEV_PRIVATE_SSH_KEY }}'
           command: |
+            gcloud auth configure-docker asia-northeast3-docker.pkg.dev --quiet && \
             docker ps -qa | xargs -r docker rm -f && \
             docker system prune --volumes -a -f && \
             docker pull ${{env.DOGU_DOCS_GAR_LOCATION}}/dogu-docs-test:latest && \
