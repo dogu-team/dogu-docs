@@ -71,55 +71,58 @@ jobs:
       #   run: |-
       #     gcloud auth configure-docker ${{ env.DOGU_GCP_REGION }}-docker.pkg.dev --quiet
       
-      - name: Build and push
+      - name: Push to Artifact Registry
         uses: docker/build-push-action@v4
         with:
           context: .
           push: true
           tags: ${{env.DOGU_DOCS_GAR_LOCATION}}/dogu-docs-test:latest
 
-  # release:
-  #   runs-on: ubuntu-latest
-  #   needs: build
+  release:
+    runs-on: ubuntu-latest
+    needs: build
 
-  #   steps:
-  #     - name: "Deploy image"
-  #       run: |-
-  #         gcloud run deploy dogu-docs-test \
-  #           --image ${{ env.DOGU_DOCS_GAR_LOCATION }} \
-  #           --platform managed \
-  #           --region ${{ env.DOGU_GCP_REGION }} \
-  #           --allow-unauthenticated \
-  #           --project ${{ env.DOGU_GCP_PROJECT_ID }}
+    steps:
+      - id: 'compute-ssh'
+        uses: 'google-github-actions/ssh-compute@v0'
+        with:
+          instance_name: 'dogu-docs-test'
+          zone: ${{env.DOGU_GCP_REGION}}-a
+          ssh_private_key: '${{ secrets.GCP_DEV_PRIVATE_SSH_KEY }}'
+          command: |
+            docker ps -qa | xargs -r docker rm -f
+            docker system prune --volumes -a -f
+            docker pull ${{env.DOGU_DOCS_GAR_LOCATION}}/dogu-docs-test:latest
+            docker run -d -p 3100:3100 ${{env.DOGU_DOCS_GAR_LOCATION}}/dogu-docs-test:latest
+            docker image prune -a -f
 
+  crawl-docs:
+    runs-on: ubuntu-latest
+    needs: release
+    steps:
+      - name: Algolia recrawl
+        uses: algolia/algoliasearch-crawler-github-actions@v1.1.9
+        id: algolia_crawler
+        with:
+          crawler-user-id: ${{ secrets.DOCS_CRAWLER_USER_ID }}
+          crawler-api-key: ${{ secrets.DOCS_CRAWLER_API_KEY }}
+          algolia-app-id: ${{ secrets.DOCS_ALGOLIA_APP_ID }}
+          algolia-api-key: ${{ secrets.DOCS_ALGOLIA_API_KEY }}
+          site-url: 'https://docs.dogutech.io'
+          crawler-name: 'dogutech'
 
-  # crawl-docs:
-  #   runs-on: ubuntu-latest
-  #   needs: release
-  #   steps:
-  #     - name: Algolia recrawl
-  #       uses: algolia/algoliasearch-crawler-github-actions@v1.1.9
-  #       id: algolia_crawler
-  #       with:
-  #         crawler-user-id: ${{ secrets.DOCS_CRAWLER_USER_ID }}
-  #         crawler-api-key: ${{ secrets.DOCS_CRAWLER_API_KEY }}
-  #         algolia-app-id: ${{ secrets.DOCS_ALGOLIA_APP_ID }}
-  #         algolia-api-key: ${{ secrets.DOCS_ALGOLIA_API_KEY }}
-  #         site-url: 'https://docs.dogutech.io'
-  #         crawler-name: 'dogutech'
+  send-slack:
+    runs-on: ubuntu-latest
+    needs: crawl-docs
+    if: ${{ always() }}
 
-  # send-slack:
-  #   runs-on: ubuntu-latest
-  #   needs: crawl-docs
-  #   if: ${{ always() }}
-
-  #   steps:
-  #     - name: Send Slack
-  #       uses: dogu-team/slack@v1.0
-  #       with:
-  #         template: 'CD'
-  #         slack-channel-id: 'C057ML9UH34'
-  #         result-status: ${{ needs.crawl-docs.result }}
-  #         ignore-notify: false
-  #       env:
-  #         SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+    steps:
+      - name: Send Slack
+        uses: dogu-team/slack@v1.0
+        with:
+          template: 'CD'
+          slack-channel-id: 'C057ML9UH34'
+          result-status: ${{ needs.crawl-docs.result }}
+          ignore-notify: false
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
