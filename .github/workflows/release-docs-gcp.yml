@@ -59,9 +59,9 @@ jobs:
         uses: "google-github-actions/setup-gcloud@v1"
 
       - name: Login to Artifact Registry
-        uses: docker/login-action@v1
+        uses: docker/login-action@v2
         with:
-          registry: ${{env.DOGU_GCP_REGION}}.pkg.dev
+          registry: ${{env.DOGU_GCP_REGION}}-docker.pkg.dev
           username: oauth2accesstoken
           password: ${{ steps.auth.outputs.access_token }}
       
