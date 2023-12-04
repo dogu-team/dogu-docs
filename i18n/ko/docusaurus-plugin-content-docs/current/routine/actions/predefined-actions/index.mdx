@@ -16,31 +16,13 @@ locale: ko
 
 ```yaml
 steps:
-  - name: prepare test
-    uses: dogu-actions/prepare
-    with:
-      appVersion:
-        android: 1.2.3
   - name:
     uses: dogu-actions/run-test
-    with:
-      script: test/samples/dogurpgsample.test.ts
+    environment: node
+    command: |
+            npm install
+            npm run test:app
 ```
-
-## dogu-actions/prepare
-
-#### 문서
-
-[링크](./prepare)
-
-#### 기능
-
-- 테스트 프로젝트 레포지토리 최신화
-- 앱 다운로드
-- 실행 중인 Gamium 앱 종료
-- 이전 앱 삭제
-- 앱 설치
-- 앱 실행
 
 ## dogu-actions/run-test
 

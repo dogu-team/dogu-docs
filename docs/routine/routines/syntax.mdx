@@ -565,8 +565,7 @@ One of the two must be defined.
 >       group: android
 >     steps:
 >       - name: step1
->         # Use app install and run action.
->         uses: dogu-actions/prepare
+>         uses: dogu-actions/run-test
 > ```
 
 ## jobs.&lt;job-name&gt;.steps.&lt;step-name&gt;.with
@@ -590,11 +589,9 @@ Details of the actions provided by Dogu and their arguments can be found in the 
 >       group: android
 >     steps:
 >       - name: step1
->         # Use app install and run action.
->         uses: dogu-actions/prepare
->         # Defines the parameters of app install and run actions.
+>         uses: dogu-actions/run-test
 >         with:
->           appVersion: 1.0.0
+>           environment: python
 > ```
 
 ## jobs.&lt;job-name&gt;.steps.&lt;step-name&gt;.cwd

@@ -566,8 +566,7 @@ step에서 사용할 [미리 정의된 액션](/routine/actions/predefined-actio
 >       group: android
 >     steps:
 >       - name: step1
->         # 앱 설치 및 실행 액션을 사용합니다.
->         uses: dogu-actions/prepare
+>         uses: dogu-actions/run-test
 > ```
 
 ## jobs.&lt;job-name&gt;.steps.&lt;step-name&gt;.with
@@ -591,11 +590,9 @@ Dogu가 제공하는 액션과 그 인자의 자세한 내용은 [미리 정의�
 >       group: android
 >     steps:
 >       - name: step1
->         # 앱 설치 및 실행 액션을 사용합니다.
->         uses: dogu-actions/prepare
->         # 앱 설치 및 실행 액션의 인자를 정의합니다.
+>         uses: dogu-actions/run-test
 >         with:
->           appVersion: 1.0.0
+>           environment: python
 > ```
 
 ## jobs.&lt;job-name&gt;.steps.&lt;step-name&gt;.cwd

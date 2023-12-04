@@ -9,7 +9,7 @@ locale: en
 
 ---
 
-Executes the test script in the project repository.
+프로젝트 저장소에서 테스트 스크립트를 실행합니다.
 
 #### Source code
 
@@ -39,7 +39,7 @@ steps:
   children="optional"
 />
 
-Checkout the project repository before running the test script.
+테스트 스크립트를 실행하기 전에 프로젝트 저장소를 체크아웃합니다.
 
 #### Default
 
@@ -52,7 +52,7 @@ false
   children="optional"
 />
 
-The branch to checkout. if tag is set, branch is ignored.
+checkout을 진행할 git branch입니다. 만약 tag가 설정되어있다면 branch는 무시됩니다.
 
 
 #### Default
@@ -67,7 +67,7 @@ main
   children="optional"
 />
 
-The tag to checkout. if tag is set, branch is ignored.
+checkout을 진행할 git tag입니다. 만약 tag가 설정되어있다면 branch는 무시됩니다.
 
 
 #### Default
@@ -81,7 +81,7 @@ main
   children="optional"
 />
 
-Clean the project repository before checkout. If checkout is false, this option is ignored.
+체크아웃하기 전에 프로젝트 저장소를 정리합니다. checkout이 false인 경우 이 옵션은 무시됩니다.
 
 #### Default
 
@@ -94,8 +94,8 @@ true
   children="optional"
 />
 
-The path to checkout the project repository. If checkout is false, this option is ignored.  
-This path is relative to the routine workspace directory.
+프로젝트 저장소를 체크아웃하는 경로입니다. checkout이 false인 경우 이 옵션은 무시됩니다.
+이 경로는 루틴 작업공간 디렉토리로 부터의 상대경로입니다.
 
 #### Default
 
@@ -108,8 +108,8 @@ This path is relative to the routine workspace directory.
   children="optional"
 />
 
-The url to checkout the project repository. If checkout is false, this option is ignored.
-If not set, use repository url from Dogu project settings. We recommend using the repository URL in your Dogu project settings, referring to [documentation](/management/project/git-integration).
+프로젝트 저장소를 체크아웃하기 위한 URL입니다. checkout이 false인 경우 이 옵션은 무시됩니다.
+설정하지 않은 경우 Dogu 프로젝트 설정의 저장소 URL을 사용합니다. [문서](/management/project/git-integration)를 참고하여 Dogu 프로젝트 설정의 저장소 URL을 사용하는 것을 권장합니다.
 
 #### Default
 
@@ -124,7 +124,7 @@ If not set, use repository url from Dogu project settings. We recommend using th
   children="optional"
 />
 
-App version to download and install from the Dogu project repository.
+Dogu 프로젝트 저장소에서 다운로드하고 설치할 앱 버전입니다.
 
 #### Default
 
@@ -137,7 +137,7 @@ App version to download and install from the Dogu project repository.
   children="optional"
 />
 
-App package name to download and install
+다운로드하고 설치할 앱 패키지 이름입니다.
 
 #### Default
 
@@ -150,7 +150,7 @@ App package name to download and install
   children="optional"
 />
 
-Uninstall app before install.
+설치하기 전에 앱을 제거합니다.
 
 #### Default
 
@@ -163,7 +163,7 @@ false
   children="optional"
 />
 
-Install app before run test script.
+테스트 스크립트를 실행하기 전에 앱을 설치합니다.
 
 #### Default
 
@@ -176,7 +176,7 @@ false
   children="optional"
 />
 
-Run app after install.
+설치 후 앱을 실행합니다.
 
 #### Default
 
@@ -189,8 +189,8 @@ false
   children="required"
 />
 
-The environment to run the test script.
-availables: `node`, `python`
+테스트 스크립트를 실행할 환경입니다.
+지원되는 환경: `node`, `python`
 
 ### command
 
@@ -199,4 +199,4 @@ availables: `node`, `python`
   children="required"
 />
 
-The command to run the test script.
+테스트 스크립트를 실행하는 명령입니다.
