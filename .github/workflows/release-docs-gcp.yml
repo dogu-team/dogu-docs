@@ -53,7 +53,9 @@ jobs:
         name: Authenticate with Google Cloud
         uses: "google-github-actions/auth@v1"
         with:
+          token_format: 'access_token'
           credentials_json: "${{ secrets.GCP_DEV_CICD_SA_KEY }}"
+          access_token_lifetime: '300s'
 
       - name: "Set up Cloud SDK"
         uses: "google-github-actions/setup-gcloud@v1"
