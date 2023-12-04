@@ -119,21 +119,29 @@ Write the following environment variables to `.env.local` file on `selenium/pyth
 DOGU_BROWSER_NAME=chrome
 DOGU_DEVICE_PLATFORM=macos # or windows
 DOGU_DEVICE_SERIAL=
+DOGU_DEVICE_TOKEN=
 ```
 
-Click the _Device Serial_ on the device as shown in the screen below. It is then copied to the clipboard.
+Go to Dogu Agent and click the button on the right side of the device to create the environment variables needed for testing.
+Copy the environment variables that appear later.
 
 <img
-  src="/img/get-started/routine-local-device-serial.png"
+  src="/img/get-started/routine-local-create-env1.png"
   style={{ width: 800, display: 'block' }}
 />
 
-Paste the device serial to `.env.local` file.
+<img
+  src="/img/get-started/routine-local-create-env2.png"
+  style={{ width: 800, display: 'block' }}
+/>
+
+Paste the value copied to the clipboard into the `.env.local` file.
 
 ```shell
 # .env.local
 # ...
 DOGU_DEVICE_SERIAL=<your device serial>
+DOGU_DEVICE_TOKEN=<your device token>
 ```
 
 #### 3. Run Test Script Locally

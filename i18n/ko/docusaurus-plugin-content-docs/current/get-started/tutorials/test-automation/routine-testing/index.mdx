@@ -119,21 +119,29 @@ load_dotenv(str(Path(__file__).parent.parent / '.env.local'))
 DOGU_BROWSER_NAME=chrome
 DOGU_DEVICE_PLATFORM=macos # or windows
 DOGU_DEVICE_SERIAL=
+DOGU_DEVICE_TOKEN=
 ```
 
-디바이스에서 *디바이스 시리얼(Device Serial)*을 아래 화면처럼 클릭하면 클립보드에 복사됩니다.
+Dogu Agent로 이동하여 디바이스 우측에 있는 버튼을 클릭하여 테스트에 필요한 환경변수를 생성합니다.
+이후 표시되는 환경변수를 복사하세요.
 
 <img
-  src="/ko/img/get-started/routine-local-device-serial.png"
+  src="/ko/img/get-started/routine-local-create-env1.png"
   style={{ width: 800, display: 'block' }}
 />
 
-클립보드에 복사된 디바이스 시리얼을 `.env.local` 파일에 붙여넣으십시오.
+<img
+  src="/ko/img/get-started/routine-local-create-env2.png"
+  style={{ width: 800, display: 'block' }}
+/>
+
+클립보드에 복사된 값을 `.env.local` 파일에 붙여넣어주세요.
 
 ```shell
 # .env.local
 # ...
 DOGU_DEVICE_SERIAL=<your device serial>
+DOGU_DEVICE_TOKEN=<your device token>
 ```
 
 #### 3. 로컬에서 테스트 스크립트 실행
