@@ -1,0 +1,35 @@
+---
+sidebar_position: 3
+title: Advanced Configuration
+locale: en
+---
+
+# Advanced Configuration
+
+## Routine
+
+### Environment Variable
+
+`zsh`를 셸로 사용하는 경우 `~/.zshrc` 또는 `~/.zprofile` 대신 `~/.zshenv`에 변수를 추가해야 합니다.
+
+:::tip 사용중인 쉘 확인
+
+터미널에서 `echo $SHELL`을 실행하여 쉘을 확인할 수 있습니다.
+
+:::
+
+## Safari Browser Automation
+
+### Enable safaridriver
+
+Safaridriver를 활성화하려면 터미널에 다음 명령을 입력하십시오.
+
+```shell
+sudo /usr/bin/safaridriver --enable
+```
+
+:::tip 공식 문서
+
+[Safari에서 WebDriver로 테스트](https://developer.apple.com/documentation/webkit/testing_with_webdriver_in_safari)를 참조하세요.
+
+:::
