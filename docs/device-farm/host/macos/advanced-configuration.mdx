@@ -6,9 +6,19 @@ locale: en
 
 # Advanced Configuration
 
-## Routine
+## Sleep settings
 
-### Environment Variable
+When macOS enters a sleep state, Dogu-Agent may stop operating unintentionally. Refer to [Documentation](https://support.apple.com/guide/mac-help/mchle41a6ccd/mac) and turn off the sleep setting.
+
+## Software update
+If software updates are turned on, Dogu-Agent may stop operating unintentionally. Refer to [Documentation](https://support.apple.com/guide/mac-help/mchlpx1065/mac) and turn off the sleep setting.
+
+
+
+## Setup for test automation
+### Routine
+
+#### Environment Variable
 
 if you are using `zsh` as your shell, you need to add your variables to `~/.zshenv` instead of `~/.zshrc` or `~/.zprofile`.
 
@@ -18,9 +28,9 @@ You can check shell by running `echo $SHELL` in terminal.
 
 :::
 
-## Safari Browser Automation
+### Safari Browser Automation
 
-### Enable safaridriver
+#### Enable safaridriver
 
 Type the following command in the terminal to enable safaridriver
 
