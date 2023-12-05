@@ -68,7 +68,7 @@
     "description": "The label for category WebdriverIO in sidebar getStartedSidebar"
   },
   "sidebar.getStartedSidebar.category.Device Farm": {
-    "message": "Device Farm",
+    "message": "Self Device Farm",
     "description": "The label for category Device Farm in sidebar getStartedSidebar"
   },
   "sidebar.getStartedSidebar.category.Device": {
@@ -162,5 +162,29 @@
   "sidebar.getStartedSidebar.category.Remote Testing": {
     "message": "Remote Testing",
     "description": "The label for category Remote Testing in sidebar getStartedSidebar"
+  },
+  "sidebar.getStartedSidebar.category.Self Device Farm": {
+    "message": "Self Device Farm",
+    "description": "The label for category Self Device Farm in sidebar getStartedSidebar"
+  },
+  "sidebar.testAutomationSidebar.category.Selenium": {
+    "message": "Selenium",
+    "description": "The label for category Selenium in sidebar testAutomationSidebar"
+  },
+  "sidebar.testAutomationSidebar.category.Appium": {
+    "message": "Appium",
+    "description": "The label for category Appium in sidebar testAutomationSidebar"
+  },
+  "sidebar.testAutomationSidebar.category.Gamium": {
+    "message": "Gamium",
+    "description": "The label for category Gamium in sidebar testAutomationSidebar"
+  },
+  "sidebar.testAutomationSidebar.category.Playwright": {
+    "message": "Playwright",
+    "description": "The label for category Playwright in sidebar testAutomationSidebar"
+  },
+  "sidebar.getStartedSidebar.category.Host": {
+    "message": "Host",
+    "description": "The label for category Host in sidebar getStartedSidebar"
   }
 }

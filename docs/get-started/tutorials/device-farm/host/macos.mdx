@@ -1,0 +1,43 @@
+---
+sidebar_position: 2
+title: MacOS
+locale: en
+sidebar_class_name: macos_document_header
+---
+
+import {
+  getBrowserPlatform,
+  BrowserPlatform,
+} from '@site/src/platform/platform.ts';
+import BrowserOnly from '@docusaurus/BrowserOnly';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import DoguAgentInstallationWindowsCloud from '@site/src/components/device-farm/DoguAgentInstallationWindowsCloud.mdx';
+import DoguAgentInstallationMacOSCloud from '@site/src/components/device-farm/DoguAgentInstallationMacOSCloud.mdx';
+
+### Host Requirements
+
+| OS      | OS Version                              | Architecture |
+| ------- | --------------------------------------- | ------------ |
+| macOS   | macOS 11 (Big Sur) or later, Xcode 12.5 | x64, arm64   |
+
+### Installation
+
+<DoguAgentInstallationMacOSCloud />
+
+3. In the console, click on the Host menu in the left sidebar of your organization.
+   <img
+     src="/img/get-started/add-host.png"
+     style={{ width: 600, display: 'block' }}
+   />
+4. Click the Add Host button, enter a host name, and complete the creation.
+5. Copy the generated host token and paste it into the token input field in the Dogu Agent to complete the connection.
+   <img
+     src="/img/get-started/dost-token-input.png"
+     style={{ width: 600, display: 'block' }}
+   />
+6. Once the status of the created host becomes "Connected" in the console, the host registration is complete.
+   <img
+     src="/img/get-started/host-connected-check.png"
+     style={{ width: 600, display: 'block' }}
+   />

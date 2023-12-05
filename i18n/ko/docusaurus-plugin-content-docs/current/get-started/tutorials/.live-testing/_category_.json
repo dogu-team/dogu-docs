@@ -1,0 +1,7 @@
+{
+  "position": 1,
+  "label": "sidebar.getStartedSidebar.category.Live Testing",
+  "collapsible": true,
+  "collapsed": true,
+  "className": "test_sidebar_header"
+}

@@ -38,5 +38,9 @@
   "link.item.label.Dogu Cloud": {
     "message": "Dogu Cloud",
     "description": "The label of footer link with label=Dogu Cloud linking to https://dogutech.io"
+  },
+  "link.item.label.GitHub": {
+    "message": "GitHub",
+    "description": "The label of footer link with label=GitHub linking to https://github.com/dogu-team/dogu-docs"
   }
 }

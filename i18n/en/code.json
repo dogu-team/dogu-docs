@@ -269,7 +269,7 @@
     "description": "The ARIA label and title attribute for expand button of doc sidebar"
   },
   "main.descriptionText": {
-    "message": "Testing platform for seamless web, mobile, game test"
+    "message": "Testing platform for web, mobile, game"
   },
   "main.introduction": {
     "message": "Introduction"
@@ -475,5 +475,17 @@
   "theme.SearchModal.placeholder": {
     "message": "Search docs",
     "description": "The placeholder of the input of the DocSearch pop-up modal"
+  },
+  "theme.ErrorPageContent.tryAgain": {
+    "message": "Try again",
+    "description": "The label of the button to try again rendering when the React error boundary captures an error"
+  },
+  "theme.common.skipToMainContent": {
+    "message": "Skip to main content",
+    "description": "The skip to content label used for accessibility, allowing to rapidly navigate to main content with keyboard tab/enter navigation"
+  },
+  "theme.tags.tagsPageTitle": {
+    "message": "Tags",
+    "description": "The title of the tag list page"
   }
 }
