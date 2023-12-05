@@ -1,0 +1,54 @@
+---
+sidebar_position: 2
+title: Agent Settings
+locale: en
+---
+
+import {
+  getBrowserPlatform,
+  BrowserPlatform,
+} from '@site/src/platform/platform.ts';
+import dost_windows_setting from '@site/static/img/dost/dost_windows_setting.png';
+import dost_windows_troubleshoot from '@site/static/img/dost/dost_windows_troubleshoot.png';
+import xcode_login_0 from '@site/static/img/dost/xcode_login_0.png';
+import xcode_login_1 from '@site/static/img/dost/xcode_login_1.png';
+import xcode_login_2 from '@site/static/img/dost/xcode_login_2.png';
+import xcode_iosdeviceagent from '@site/static/img/dost/xcode_iosdeviceagent.png';
+import xcode_webdriveragent from '@site/static/img/dost/xcode_webdriveragent.png';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import Admonition from '@theme/Admonition';
+import DoguAgentInstallationCloud from '@site/src/components/device-farm/DoguAgentInstallationWindowsCloud.mdx';
+
+### Settings
+
+You can customize Dogu Agent's default settings.
+
+#### General
+
+<img src={dost_windows_setting} style={{ width: 600 }} />
+
+- Start Dogu Agent when you log in
+  - Dogu Agent starts automatically when PC turns on.
+- Theme for Dogu Agent
+  - Sets Dogu Agent's color theme.
+
+#### TroubleShoot
+
+<img src={dost_windows_troubleshoot} style={{ width: 600 }} />
+
+- Diagnose packages
+  - Check the installation status of the packages necessary for normal
+    Dogu Agent execution..
+- Open Docs
+
+  - Open documents website.
+
+<br></br>
+<br></br>
+
+:::info
+
+Dogu Agent installation has been completed? Try adding devices through [Device configuration](/device-farm/device/settings).
+
+:::
