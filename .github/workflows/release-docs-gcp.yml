@@ -13,7 +13,7 @@ env:
   DOCS_GA_ID: G-5WLY043T9W
   DOGU_GCP_REGION: asia-northeast3
   DOGU_GCP_PROJECT_ID: ${{secrets.GCP_PROD_PROJECT_ID}}
-  DOGU_DOCS_GAR_LOCATION: asia-northeast3-docker.pkg.dev/${{secrets.GCP_PROD_PROJECT_ID}}/dogu-docs-test
+  DOGU_DOCS_GAR_LOCATION: asia-northeast3-docker.pkg.dev/${{secrets.GCP_PROD_PROJECT_ID}}/dogu-docs
 
 jobs:
   build:
@@ -73,7 +73,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{env.DOGU_DOCS_GAR_LOCATION}}/dogu-docs-test:latest
+          tags: ${{env.DOGU_DOCS_GAR_LOCATION}}/dogu-docs:latest
 
   release:
     runs-on: ubuntu-latest
@@ -95,8 +95,8 @@ jobs:
             gcloud auth configure-docker asia-northeast3-docker.pkg.dev --quiet && \
             docker ps -qa | xargs -r docker rm -f && \
             docker system prune --volumes -a -f && \
-            docker pull ${{env.DOGU_DOCS_GAR_LOCATION}}/dogu-docs-test:latest && \
-            docker run -d -p 3100:3100 ${{env.DOGU_DOCS_GAR_LOCATION}}/dogu-docs-test:latest && \
+            docker pull ${{env.DOGU_DOCS_GAR_LOCATION}}/dogu-docs:latest && \
+            docker run -d -p 3100:3100 ${{env.DOGU_DOCS_GAR_LOCATION}}/dogu-docs:latest && \
             docker image prune -a -f
 
   crawl-docs:
