@@ -12,8 +12,8 @@ env:
   DOGU_AWS_REGION: ap-northeast-2
   DOCS_GA_ID: G-5WLY043T9W
   DOGU_GCP_REGION: asia-northeast3
-  DOGU_GCP_PROJECT_ID: ${{secrets.GCP_DEV_PROJECT_ID}}
-  DOGU_DOCS_GAR_LOCATION: asia-northeast3-docker.pkg.dev/${{secrets.GCP_DEV_PROJECT_ID}}/dogu-docs-test
+  DOGU_GCP_PROJECT_ID: ${{secrets.GCP_PROD_PROJECT_ID}}
+  DOGU_DOCS_GAR_LOCATION: asia-northeast3-docker.pkg.dev/${{secrets.GCP_PROD_PROJECT_ID}}/dogu-docs-test
 
 jobs:
   build:
@@ -54,7 +54,7 @@ jobs:
         uses: "google-github-actions/auth@v1"
         with:
           token_format: 'access_token'
-          credentials_json: "${{ secrets.GCP_DEV_CICD_SA_KEY }}"
+          credentials_json: "${{ secrets.GCP_PROD_CICD_SA_KEY }}"
           access_token_lifetime: '300s'
 
       - name: "Set up Cloud SDK"
@@ -67,9 +67,6 @@ jobs:
           username: oauth2accesstoken
           password: ${{ steps.auth.outputs.access_token }}
       
-      # - name: "Docker auth"
-      #   run: |-
-      #     gcloud auth configure-docker ${{ env.DOGU_GCP_REGION }}-docker.pkg.dev --quiet
       
       - name: Push to Artifact Registry
         uses: docker/build-push-action@v4
@@ -91,7 +88,7 @@ jobs:
       - id: 'compute-ssh'
         uses: 'google-github-actions/ssh-compute@v0'
         with:
-          instance_name: 'dogu-docs-test'
+          instance_name: 'dogu-docs'
           zone: ${{env.DOGU_GCP_REGION}}-a
           ssh_private_key: '${{ secrets.GCP_DEV_PRIVATE_SSH_KEY }}'
           command: |
