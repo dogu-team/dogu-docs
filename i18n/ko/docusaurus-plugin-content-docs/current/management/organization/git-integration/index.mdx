@@ -19,12 +19,10 @@ https://github.com/dogu-team/dogu-routine-examples 에서 레포지토리 예시
 2. **루트 경로**에 `dogu.config.json` 파일을 아래의 내용과 같이 생성합니다.
    ```json
    {
-     "scriptFolderPaths": ["test"], // optional
      "workingDirPaths": ["selenium/typescript/jest"] // optional
    }
    ```
 
-- `scriptFolderPaths`: 지정한 경로 하위에 테스트 스크립트를 작성합니다. [루틴 GUI 에디터](/routine/routines/editor)에서 스크립트를 찾을 때 사용됩니다.
 - `workingDirPaths`: 지정한 경로에서 `dogu-actions/run-test`의 커맨드를 실행합니다. [루틴 GUI 에디터](/routine/routines/editor)에서 작업 디렉토리를 찾을 때 사용됩니다.
 
 ## 연동하기
@@ -36,30 +34,35 @@ Dogu에서는 레포지토리 트리 조회, 파일 조회, clone 등의 동작�
 
 :::
 
-1. 프로젝트 페이지의 왼쪽 사이드바에서 "설정" 메뉴를 클릭합니다.
-2. Git 서비스 목록에서 "Connect" 버튼을 클릭합니다.
+1. 조직 페이지의 왼쪽 사이드바에서 "설정" 메뉴를 클릭합니다.
+2. Git 섹션에서 "Connect" 버튼을 클릭합니다.
    <img
-     src="/ko/img/console/project/git-integration-menu.png"
+     src="/ko/img/console/organization/git-integration-menu.png"
      style={{ width: 500, display: 'block' }}
    />
-3. Git 토큰, 레포지토리 URL을 입력하고 저장합니다.
-   <img
-     src="/ko/img/console/project/git-integration-form.png"
-     style={{ width: 500, display: 'block' }}
-   />
+3. Git 서비스를 선택하고, Git 토큰과 레포지토리 URL을 입력한 후 저장합니다.
+    <img
+      src="/ko/img/console/organization/git-integration-form.png"
+      style={{ width: 500, display: 'block' }}
+    />
 
 ### 연동 확인하기
 
-1. 프로젝트 페이지의 왼쪽 사이드바에서 "설정" 메뉴를 클릭합니다.
-2. 연동한 Git 서비스에서 "Disconnect" 버튼이 보이는지 확인합니다.
+1. 조직 페이지의 왼쪽 사이드바에서 "설정" 메뉴를 클릭합니다.
+2. Git 섹션에 "Disconnect" 버튼이 표시되는지 확인합니다.
    <img
-     src="/ko/img/console/project/git-integration-check.png"
+     src="/ko/img/console/organization/git-integration-check.png"
      style={{ width: 500, display: 'block' }}
    />
-3. 프로젝트 페이지의 왼쪽 사이드바에서 "루틴" 메뉴를 클릭합니다.
-4. 루틴 목록에서 `+` 아이콘을 클릭합니다.
-5. GUI 에디터를 선택하고, `Run test` 액션에서 테스트 스크립트가 불러와지는지 확인합니다.
-   <img
-     src="/ko/img/console/project/git-integration-confirm.png"
-     style={{ width: 500, display: 'block' }}
-   />
+3. 조직 페이지의 왼쪽 사이드바에서 "모바일 앱" 메뉴를 클릭합니다.
+    <img
+      src="/ko/img/console/organization/git-integration-confirm1.png"
+      style={{ width: 200, display: 'block' }}
+    />
+4. 새 프로젝트를 생성합니다.
+5. 루틴 목록에서 `+` 아이콘을 클릭합니다.
+6. GUI 에디터를 선택하고, 레포지토리 목록이 표시되는지 확인합니다.
+    <img
+      src="/ko/img/console/organization/git-integration-confirm2.png"
+      style={{ width: 300, display: 'block' }}
+    />
