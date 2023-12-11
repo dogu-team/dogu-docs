@@ -4,12 +4,10 @@ title: Managing Apps
 locale: en
 ---
 
-import ProjectWritePermission from '/src/components/console/ProjectWritePermissionEng.mdx';
-import ProjectMemberPermission from '/src/components/console/ProjectMemberPermissionEng.mdx';
+import OrganizationAdminPermission from '/src/components/console/OrganizationAdminPermissionEng.mdx';
+import OrganizationMemberPermission from '/src/components/console/OrganizationMemberPermissionEng.mdx';
 
-In a project, you can upload the app for testing in the project and use it for routines or script tests.
-
-**In the case of a web template project, you cannot upload an app.**
+In a organization, you can upload the app for testing in the organization and use it for routines or script tests.
 
 :::info
 
@@ -37,31 +35,27 @@ Only `.apk` or `.ipa` files are supported for app uploads.
 
 :::
 
-<ProjectWritePermission prefix="Uploading an app" />
+<OrganizationAdminPermission prefix="Uploading an app" />
 
-1. Go to the project page and click on the "Apps" menu in the left sidebar.
+1. Go to the organization page and click on the "Apps" menu in the left sidebar.
 2. Click the "Upload app" button.
    <img
-     src="/img/console/project/upload-app.png"
+     src="/img/console/organization/app-upload.png"
      style={{ width: 600, display: 'block' }}
    />
 3. Drag and drop or select the app file to complete the upload.
    <img
-     src="/img/console/project/upload-app-modal.png"
+     src="/img/console/organization/app-upload-modal.png"
      style={{ width: 600, display: 'block' }}
    />
 
-:::tup Latest App
+:::tip Latest App
 
 If you upload an app with the same app ID, the uploaded app will become the "Latest" app if its build version is the same or higher.
 
 :::
 
 ## Using an app
-
-### Remote
-
-When conducting app tests through remotes, you utilize the uploaded app version. If the app version is not available in the app list, remote testing will not work.
 
 ### Routines
 
@@ -71,24 +65,32 @@ Refer to the [Routine Guide](/routine/routines) for instructions on how to use t
 
 ## Download an app
 
-<ProjectMemberPermission prefix="Downloading the app" />
+<OrganizationMemberPermission prefix="Downloading the app" />
 
-1. Go to the project page and click on the "Apps" menu in the left sidebar.
-2. Find the app you want to download from the list and click the menu button(`···`).
+1. Go to the organization page and click on the "Apps" menu in the left sidebar.
+2. Find the app you want to download from the list and click the app name.
+   <img
+     src="/img/console/organization/app-select.png"
+     style={{ width: 600, display: 'block' }}
+   />
 3. Click the "Download" button.
    <img
-     src="/img/console/project/download-app.png"
+     src="/img/console/organization/app-action.png"
      style={{ width: 600, display: 'block' }}
    />
 
 ## Remove an app
 
-<ProjectWritePermission prefix="Removing an app" />
+<OrganizationAdminPermission prefix="Removing an app" />
 
-1. Go to the project page and click on the "Apps" menu in the left sidebar.
-2. Find the app you want to remove from the list and click the menu button(`···`).
+1. Go to the organization page and click on the "Apps" menu in the left sidebar.
+2. Find the app you want to download from the list and click the app name.
+   <img
+     src="/img/console/organization/app-select.png"
+     style={{ width: 600, display: 'block' }}
+   />
 3. Click the "Delete" button.
    <img
-     src="/img/console/project/delete-app.png"
+     src="/img/console/organization/app-action.png"
      style={{ width: 600, display: 'block' }}
    />
