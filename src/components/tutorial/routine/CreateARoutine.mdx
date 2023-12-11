@@ -1,4 +1,77 @@
-## Create a routine
+import CodeBlock from '@theme/CodeBlock';
 
-- To automatically run test scripts when you want, you must create a [routine](/routine/routines).
-- Refer to [Managing Routines](/management/project/routine), enter the routine creation window, and enter the following in the YAML Editor to create it.
+<div>
+    <h2>Create a routine</h2>
+    <ul>
+        <li>Click <b>{props.type}</b> in the left menu to go to the project list.</li>
+        <li>
+            Click <b>Create project</b> to create a project.
+            <img src={props.project_create_image} style={{ width: 500, display: 'block' }}/>
+            <br/>
+        </li>
+        <li>
+            Enter the project name and click <b>Add</b>.
+            <img src={props.project_create_confirm_image} style={{ width: 500, display: 'block' }}/>
+            <br/>
+        </li>
+    </ul>
+    <ul>
+        <li>
+            Click <b>+</b> to create a routine.
+            <img src={props.routine_create_image} style={{ width: 400, display: 'block' }}/>
+            <br/>
+        </li>
+        <li>
+            Select the repository including the test script and click.
+            <img src={props.routine_select_repository_image} style={{ width: 400, display: 'block' }}/>
+            <br/>
+        </li>
+        <li>
+            Click <b>Select app</b> to select the platform for running the test script.
+            <img src={props.routine_select_app_image} style={{ width: 500, display: 'block' }}/>
+            <br/>
+        </li>
+        <li>
+            Select the app to run the test script.
+            <img src={props.routine_select_app_confirm_image} style={{ width: 500, display: 'block' }}/>
+            <br/>
+        </li>
+        <li>
+            Click <b>Cloud devices</b> and click <b>+</b>.
+            <img src={props.routine_select_device_image} style={{ width: 300, display: 'block' }}/>
+            <br/>
+        </li>
+        <li>
+            Select the device to run the test script.
+            <img src={props.routine_select_device_confirm_image} style={{ width: 300, display: 'block' }}/>
+            <br/>
+        </li>
+        <li>
+            Select <b>Working directory</b>.
+            <img src={props.routine_select_working_dir_image} style={{ width: 400, display: 'block' }}/>
+            <br/>
+        </li>
+        <li>
+            Select <b>Environment</b>.
+            <img src={props.routine_select_environment_image} style={{ width: 400, display: 'block' }}/>
+            <br/>
+        </li>
+        <li>
+            Copy this command and paste it into the <b>command</b> block like the image below.
+            <CodeBlock language="shell">{`${props.routine_write_command_script}`}</CodeBlock>
+            <img src={props.routine_write_command_image} style={{ width: 400, display: 'block' }}/>
+            <br/>
+        </li>
+        <li>
+            Click <b>Update</b> to save the routine.
+            <img src={props.routine_update_image} style={{ width: 600, display: 'block' }}/>
+            <br/>
+        </li>
+    </ul>
+</div>
+
+:::tip
+
+Refer to [Managing Routines](/management/project/routine) for more information on managing routines.
+
+:::

@@ -1,4 +1,77 @@
-## 루틴 만들기
+import CodeBlock from '@theme/CodeBlock';
 
-- 원하는 시점에 자동으로 테스트 스크립트를 실행하려면 [루틴](/routine/routines)을 생성해야 합니다.
-- [루틴 관리하기](/management/project/routine)를 참고하여 루틴 생성 창에 진입한 후 YAML Editor에 다음과 같이 입력합니다.
+<div>
+    <h2>루틴 생성</h2>
+    <ul>
+        <li>왼쪽 메뉴에서 <b>{props.type}</b>를 클릭하여 프로젝트 목록으로 이동합니다.</li>
+        <li>
+            <b>프로젝트 생성</b>을 클릭하여 프로젝트를 생성합니다.
+            <img src={props.project_create_image} style={{ width: 500, display: 'block' }}/>
+            <br/>
+        </li>
+        <li>
+            프로젝트 이름을 입력하고 <b>생성</b>를 클릭합니다.
+            <img src={props.project_create_confirm_image} style={{ width: 500, display: 'block' }}/>
+            <br/>
+        </li>
+    </ul>
+    <ul>
+        <li>
+            <b>+</b>를 클릭하여 루틴을 생성합니다.
+            <img src={props.routine_create_image} style={{ width: 400, display: 'block' }}/>
+            <br/>
+        </li>
+        <li>
+            테스트 스크립트가 포함된 저장소를 선택하고 클릭합니다.
+            <img src={props.routine_select_repository_image} style={{ width: 400, display: 'block' }}/>
+            <br/>
+        </li>
+        <li>
+            <b>Select app</b>을 클릭하여 테스트 스크립트를 실행할 플랫폼을 선택합니다.
+            <img src={props.routine_select_app_image} style={{ width: 500, display: 'block' }}/>
+            <br/>
+        </li>
+        <li>
+            테스트 스크립트를 실행할 앱을 선택합니다.
+            <img src={props.routine_select_app_confirm_image} style={{ width: 500, display: 'block' }}/>
+            <br/>
+        </li>
+        <li>
+            <b>Cloud devices</b>를 클릭하고 <b>+</b>를 클릭합니다.
+            <img src={props.routine_select_device_image} style={{ width: 300, display: 'block' }}/>
+            <br/>
+        </li>
+        <li>
+            테스트 스크립트를 실행할 디바이스를 선택합니다.
+            <img src={props.routine_select_device_confirm_image} style={{ width: 300, display: 'block' }}/>
+            <br/>
+        </li>
+        <li>
+            <b>작업 디렉토리</b>를 선택합니다.
+            <img src={props.routine_select_working_dir_image} style={{ width: 400, display: 'block' }}/>
+            <br/>
+        </li>
+        <li>
+            <b>환경</b>을 선택합니다.
+            <img src={props.routine_select_environment_image} style={{ width: 400, display: 'block' }}/>
+            <br/>
+        </li>
+        <li>
+            이 명령을 복사하여 아래 이미지와 같이 <b>command</b> 블록에 붙여넣습니다.
+            <CodeBlock language="shell">{`${props.routine_write_command_script}`}</CodeBlock>
+            <img src={props.routine_write_command_image} style={{ width: 400, display: 'block' }}/>
+            <br/>
+        </li>
+        <li>
+            <b>저장</b>을 클릭하여 루틴을 저장합니다.
+            <img src={props.routine_update_image} style={{ width: 600, display: 'block' }}/>
+            <br/>
+        </li>
+    </ul>
+</div>
+
+:::tip
+
+루틴 관리에 대한 자세한 내용은 [루틴 관리](/management/project/routine)를 참조해주세요.
+
+:::

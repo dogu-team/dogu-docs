@@ -18,6 +18,18 @@ import IntegrateWithGitRepository from '@site/src/components/tutorial/routine/In
 import CreateARoutine from '@site/src/components/tutorial/routine/CreateARoutineKor.mdx';
 import RunARoutine from '@site/src/components/tutorial/routine/RunARoutineKor.mdx';
 import routine_livestreaming_gamium_pytest from '@site/static/img/routine/routine_livestreaming_gamium_pytest.png';
+import project_create_image from '@site/static/img/get-started/test-automation/project-create-mobile-game.png';
+import project_create_confirm_image from '@site/static/img/get-started/test-automation/project-create-confirm-mobile-game.png';
+import routine_create_image from '@site/static/img/get-started/test-automation/routine-create-mobile-game.png';
+import routine_select_repository_image from '@site/static/img/get-started/test-automation/routine-select-repository-example.png';
+import routine_select_app_image from '@site/static/img/get-started/test-automation/routine-select-app-android.png';
+import routine_select_app_confirm_image from '@site/static/img/get-started/test-automation/routine-select-app-confirm-android-dogurpgsample.png';
+import routine_select_device_image from '@site/static/img/get-started/test-automation/routine-select-device-cloud.png';
+import routine_select_device_confirm_image from '@site/static/img/get-started/test-automation/routine-select-device-confirm-cloud-android.png';
+import routine_select_working_dir_image from '@site/static/img/get-started/test-automation/routine-select-working-dir-gamium-python-pytest.png';
+import routine_select_environment_image from '@site/static/img/get-started/test-automation/routine-select-environment-python.png';
+import routine_write_command_image from '@site/static/img/get-started/test-automation/routine-write-command-gamium-python-pytest.png';
+import routine_update_image from '@site/static/img/get-started/test-automation/routine-update-mobile-game.png';
 
 <IntegrateWithGitRepository />
 
@@ -27,19 +39,23 @@ import routine_livestreaming_gamium_pytest from '@site/static/img/routine/routin
 />
 <AppUploadiOSGamium />
 
-<CreateARoutine />
-
-<div>
-  {RoutineMobileExample({
-    name: 'gamium-pytest',
-    environment: 'python',
-    cwd: 'gamium/python/pytest',
-    androidAppPackageName: 'com.dogutech.DoguRpgSample',
-    androidCommand: 'pytest app/test_dogurpgsample.py --capture=no -x',
-    iosAppPackageName: 'com.dogutech.DoguRpgSample',
-    iosCommand: 'pytest app/test_dogurpgsample.py --capture=no -x',
-  })}
-</div>
+<CreateARoutine 
+  type="모바일 게임"
+  project_create_image={project_create_image}
+  project_create_confirm_image={project_create_confirm_image}
+  routine_create_image={routine_create_image}
+  routine_select_repository_image={routine_select_repository_image}
+  routine_select_app_image={routine_select_app_image}
+  routine_select_app_confirm_image={routine_select_app_confirm_image}
+  routine_select_device_image={routine_select_device_image}
+  routine_select_device_confirm_image={routine_select_device_confirm_image}
+  routine_select_working_dir_image={routine_select_working_dir_image}
+  routine_select_environment_image={routine_select_environment_image}
+  routine_write_command_image={routine_write_command_image}
+  routine_write_command_script={`pip install -r requirements.txt
+pytest app/test_dogurpgsample.py --capture=no -x`}
+  routine_update_image={routine_update_image}
+/>
 
 <RunARoutine />
 <img src={routine_livestreaming_gamium_pytest} style={{ width: 800 }} />
