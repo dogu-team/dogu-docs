@@ -186,5 +186,9 @@
   "sidebar.getStartedSidebar.category.Host": {
     "message": "Host",
     "description": "The label for category Host in sidebar getStartedSidebar"
+  },
+  "sidebar.apiSidebar.category.Organization": {
+    "message": "Organization",
+    "description": "The label for category Organization in sidebar apiSidebar"
   }
 }
