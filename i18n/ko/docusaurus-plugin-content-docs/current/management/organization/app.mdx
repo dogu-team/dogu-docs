@@ -4,7 +4,6 @@ title: 앱 관리
 locale: ko
 ---
 
-import OrganizationAdminPermission from '/src/components/console/OrganizationAdminPermission.mdx';
 import OrganizationMemberPermission from '/src/components/console/OrganizationMemberPermission.mdx';
 
 조직에서 테스트를 수행할 앱을 업로드하고, 루틴이나 스크립트 테스트에 활용할 수 있습니다.
@@ -35,7 +34,7 @@ Dogu는 다음과 같은 정보를 앱에서 수집합니다.
 
 :::
 
-<OrganizationAdminPermission prefix="앱 업로드는" />
+<OrganizationMemberPermission prefix="앱 업로드는" />
 
 1. 조직 페이지의 왼쪽 사이드바에서 "앱" 메뉴를 클릭합니다.
 2. "앱 업로드" 버튼을 클릭합니다.
@@ -81,7 +80,7 @@ Dogu는 다음과 같은 정보를 앱에서 수집합니다.
 
 ## 앱 삭제하기
 
-<OrganizationAdminPermission prefix="앱 삭제는" />
+<OrganizationMemberPermission prefix="앱 삭제는" />
 
 1. 조직 페이지의 왼쪽 사이드바에서 "앱" 메뉴를 클릭합니다.
 2. 앱 목록에서 삭제할 앱을 찾아 클릭합니다.

@@ -4,7 +4,6 @@ title: Managing Apps
 locale: en
 ---
 
-import OrganizationAdminPermission from '/src/components/console/OrganizationAdminPermissionEng.mdx';
 import OrganizationMemberPermission from '/src/components/console/OrganizationMemberPermissionEng.mdx';
 
 In a organization, you can upload the app for testing in the organization and use it for routines or script tests.
@@ -35,7 +34,7 @@ Only `.apk` or `.ipa` files are supported for app uploads.
 
 :::
 
-<OrganizationAdminPermission prefix="Uploading an app" />
+<OrganizationMemberPermission prefix="Uploading an app" />
 
 1. Go to the organization page and click on the "Apps" menu in the left sidebar.
 2. Click the "Upload app" button.
@@ -81,7 +80,7 @@ Refer to the [Routine Guide](/routine/routines) for instructions on how to use t
 
 ## Remove an app
 
-<OrganizationAdminPermission prefix="Removing an app" />
+<OrganizationMemberPermission prefix="Removing an app" />
 
 1. Go to the organization page and click on the "Apps" menu in the left sidebar.
 2. Find the app you want to download from the list and click the app name.
