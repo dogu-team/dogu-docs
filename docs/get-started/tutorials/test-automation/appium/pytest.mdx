@@ -15,9 +15,21 @@ import TabItem from '@theme/TabItem';
 import AppUpload from '@site/src/components/tutorial/common/AppUpload.mdx';
 import AppUploadiOS from '@site/src/components/tutorial/common/AppUploadiOS.mdx';
 import IntegrateWithGitRepository from '@site/src/components/tutorial/routine/IntegrateWithGitRepository.mdx';
-import CreateARoutine from '@site/src/components/tutorial/routine/CreateARoutine.mdx';
+import CreateARoutineGui from '@site/src/components/tutorial/routine/CreateARoutineGui.mdx';
 import RunARoutine from '@site/src/components/tutorial/routine/RunARoutine.mdx';
 import routine_livestreaming_appium_pytest from '@site/static/img/routine/routine_livestreaming_appium_pytest.png';
+import project_create_image from '@site/static/img/get-started/test-automation/project-create-mobile-app.png';
+import project_create_confirm_image from '@site/static/img/get-started/test-automation/project-create-confirm-mobile-app.png';
+import routine_select_repository_image from '@site/static/img/get-started/test-automation/routine-select-repository-example.png';
+import routine_select_app_image from '@site/static/img/get-started/test-automation/routine-select-app-android.png';
+import routine_select_app_confirm_image from '@site/static/img/get-started/test-automation/routine-select-app-confirm-android-wikipedia.png';
+import routine_select_device_image from '@site/static/img/get-started/test-automation/routine-select-device-cloud.png';
+import routine_select_device_confirm_image from '@site/static/img/get-started/test-automation/routine-select-device-confirm-cloud-android.png';
+import routine_select_working_dir_image from '@site/static/img/get-started/test-automation/routine-select-working-dir-appium-python-pytest.png';
+import routine_select_environment_image from '@site/static/img/get-started/test-automation/routine-select-environment-python.png';
+import routine_write_command_image from '@site/static/img/get-started/test-automation/routine-write-command-appium-python-pytest.png';
+import routine_full_image from '@site/static/img/get-started/test-automation/routine-full-appium-python-pytest.png';
+import routine_empty_image from '@site/static/img/get-started/test-automation/routine-empty-mobile-app.png';
 
 Describes how to test apps with Dogu using Pytest.
 
@@ -29,19 +41,23 @@ Describes how to test apps with Dogu using Pytest.
 />
 <AppUploadiOS />
 
-<CreateARoutine />
-
-<div>
-  {RoutineMobileExample({
-    name: 'appium-pytest',
-    environment: 'python',
-    cwd: 'appium/python/pytest',
-    androidAppPackageName: 'org.wikipedia.alpha',
-    androidCommand: 'pytest app/test_android.py --capture=no -x',
-    iosAppPackageName: 'com.dogu.sampleapp',
-    iosCommand: 'pytest app/test_ios.py --capture=no -x',
-  })}
-</div>
+<CreateARoutineGui 
+  type="Mobile App"
+  project_create_image={project_create_image}
+  project_create_confirm_image={project_create_confirm_image}
+  routine_empty_image={routine_empty_image}
+  routine_select_repository_image={routine_select_repository_image}
+  routine_select_app_image={routine_select_app_image}
+  routine_select_app_confirm_image={routine_select_app_confirm_image}
+  routine_select_device_image={routine_select_device_image}
+  routine_select_device_confirm_image={routine_select_device_confirm_image}
+  routine_select_working_dir_image={routine_select_working_dir_image}
+  routine_select_environment_image={routine_select_environment_image}
+  routine_write_command_image={routine_write_command_image}
+  routine_write_command_script={`pip install -r requirements.txt
+pytest app/test_android.py --capture=no -x`}
+  routine_full_image={routine_full_image}
+/>
 
 <RunARoutine />
 <img src={routine_livestreaming_appium_pytest} style={{ width: 800 }} />
