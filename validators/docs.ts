@@ -5,6 +5,7 @@ const exceptionUrls: string[] = [
   'https://DOGU_HOST:3001',
   'https://api.dogutech.io/v1/projects/${projectId}/applications',
   'https://api.dogutech.io/v1/projects/${projectId}/routines/${routineId}/pipelines',
+  'https://api.dogutech.io/v1/organizations/${organizationId}/applications',
   'https://github.com/dogu-team/${props.repo_name}.git',
 ];
 const checkedUrls: { [url: string]: boolean } = {};
