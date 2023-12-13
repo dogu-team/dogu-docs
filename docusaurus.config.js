@@ -113,10 +113,6 @@ const config = {
                 label: 'Dogu Cloud',
                 href: 'https://dogutech.io',
               },
-              {
-                label: 'Download Dogu Agent',
-                href: 'https://dogutech.io/downloads/dogu-agent',
-              },
             ],
           },
           {
