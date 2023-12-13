@@ -11,6 +11,9 @@ permissions:
 env:
   DOGU_AWS_REGION: ap-northeast-2
   DOCS_GA_ID: G-5WLY043T9W
+  DOGU_GCP_REGION: asia-northeast3
+  DOGU_GCP_PROJECT_ID: ${{secrets.GCP_PROD_PROJECT_ID}}
+  DOGU_DOCS_GAR_LOCATION: asia-northeast3-docker.pkg.dev/${{secrets.GCP_PROD_PROJECT_ID}}/dogu-docs
 
 jobs:
   build:
@@ -46,64 +49,55 @@ jobs:
       - name: Build docs
         run: yarn build
 
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1-node16
+      - id: auth
+        name: Authenticate with Google Cloud
+        uses: "google-github-actions/auth@v1"
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ env.DOGU_AWS_REGION }}
+          token_format: 'access_token'
+          credentials_json: "${{ secrets.GCP_PROD_CICD_SA_KEY }}"
+          access_token_lifetime: '300s'
 
-      - name: Login to Amazon ECR Private
-        id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v1
-        with:
-          mask-password: true
+      - name: "Set up Cloud SDK"
+        uses: "google-github-actions/setup-gcloud@v1"
 
-      - name: Build and push
-        uses: docker/build-push-action@v3
+      - name: Login to Artifact Registry
+        uses: docker/login-action@v2
         with:
+          registry: ${{env.DOGU_GCP_REGION}}-docker.pkg.dev
+          username: oauth2accesstoken
+          password: ${{ steps.auth.outputs.access_token }}
+      
+      
+      - name: Push to Artifact Registry
+        uses: docker/build-push-action@v4
+        with:
+          context: .
           push: true
-          context: ./
-          tags: ${{ steps.login-ecr.outputs.registry }}/prod-dogu-docs:latest
-          platforms: linux/amd64
-          target: dogu-docs
+          tags: ${{env.DOGU_DOCS_GAR_LOCATION}}/dogu-docs:latest
 
   release:
-    runs-on: dogu-docs
+    runs-on: ubuntu-latest
     needs: build
 
     steps:
-      - name: docker init
-        run: |
-          docker ps -qa | xargs -r docker rm -f
-          docker system prune --volumes -a -f
-
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1-node16
+      - name: Authenticate with Google Cloud
+        uses: "google-github-actions/auth@v1"
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ env.DOGU_AWS_REGION }}
-
-      - name: Login to Amazon ECR Private
-        id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v1
+          credentials_json: "${{ secrets.GCP_PROD_CICD_SA_KEY }}"
+      
+      - id: 'compute-ssh'
+        uses: 'google-github-actions/ssh-compute@v0'
         with:
-          mask-password: true
-
-      - name: Run
-        run: |
-          docker pull ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ env.DOGU_AWS_REGION }}.amazonaws.com/prod-dogu-docs:latest
-          CONTAINERS=$(docker ps -a -q)
-          if [ -n "$CONTAINERS" ]; then
-            docker stop $(docker ps -a -q)
-            docker rm $(docker ps -a -q)
-            docker run -d -p 3100:3100 ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ env.DOGU_AWS_REGION }}.amazonaws.com/prod-dogu-docs:latest
-            docker image prune -f
-          else
-            docker run -d -p 3100:3100 ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ env.DOGU_AWS_REGION }}.amazonaws.com/prod-dogu-docs:latest
-            docker image prune -f
-          fi
+          instance_name: 'dogu-docs'
+          zone: ${{env.DOGU_GCP_REGION}}-a
+          ssh_private_key: '${{ secrets.GCP_PROD_PRIVATE_SSH_KEY }}'
+          command: |
+            gcloud auth configure-docker asia-northeast3-docker.pkg.dev --quiet && \
+            docker ps -qa | xargs -r docker rm -f && \
+            docker system prune --volumes -a -f && \
+            docker pull ${{env.DOGU_DOCS_GAR_LOCATION}}/dogu-docs:latest && \
+            docker run -d -p 3100:3100 ${{env.DOGU_DOCS_GAR_LOCATION}}/dogu-docs:latest && \
+            docker image prune -a -f
 
   crawl-docs:
     runs-on: ubuntu-latest
